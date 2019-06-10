@@ -1,3 +1,13 @@
+<?php 
+// session_start();
+
+// $str=str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER['SCRIPT_FILENAME']));
+// echo $path=$_SERVER['SERVER_NAME'] .$str;
+
+// $_SESSION['root_path']=$path;
+
+?>
+
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
 
@@ -44,7 +54,7 @@
   <link rel="stylesheet" href="../global/fonts/web-icons/web-icons.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/fonts/brand-icons/brand-icons.min599c.css?v4.0.2">
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
-
+  <link rel="stylesheet" href="../global/fonts/font-awesome/font-awesome.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/fonts/weather-icons/weather-icons.min599c.css?v4.0.2">
 
   <!--[if lt IE 9]>

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             echo "yes you are admin";
             $_REQUEST["username"] = $username;
-            header("Location: admin_page1.php");
+            header("Location: dashboard.php");
         }
         else
         {
