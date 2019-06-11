@@ -1,3 +1,13 @@
+<?php 
+// session_start();
+
+// $str=str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER['SCRIPT_FILENAME']));
+// echo $path=$_SERVER['SERVER_NAME'] .$str;
+
+// $_SESSION['root_path']=$path;
+
+?>
+
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
 
