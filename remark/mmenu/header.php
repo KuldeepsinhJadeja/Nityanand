@@ -56,7 +56,8 @@
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
   <link rel="stylesheet" href="../global/fonts/font-awesome/font-awesome.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/fonts/weather-icons/weather-icons.min599c.css?v4.0.2">
-
+  <link rel="stylesheet" href="../../global/vendor/blueimp-file-upload/jquery.fileupload.min599c.css?v4.0.2">
+<link rel="stylesheet" href="../../global/vendor/dropify/dropify.min599c.css?v4.0.2">
   <!--[if lt IE 9]>
     <script src="../global/vendor/html5shiv/html5shiv.min.js?v4.0.2"></script>
     <![endif]-->
