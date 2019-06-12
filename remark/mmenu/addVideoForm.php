@@ -27,7 +27,7 @@ include_once 'navigation-bar-admin.html';
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Video Category</h4>
                         <select class="form-control" name="category">
-                            <option>Motivation</option>
+                            <option>Motivational</option>
                             <option>Spiritual</option>
                             <option>Yoga</option>
                             <option>Peace</option>
