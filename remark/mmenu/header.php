@@ -20,9 +20,14 @@
   <meta name="author" content="">
 
   <title>Dashboard | Remark Admin Template</title>
-
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- // -->
+  <link rel="stylesheet" href="../global/vendor/jquery-selective/jquery-selective.min599c.css?v4.0.2">
+  <link rel="stylesheet" href="../global/vendor/bootstrap-datepicker/bootstrap-datepicker.min599c.css?v4.0.2">
+  <link rel="stylesheet" href="../global/vendor/ladda/ladda.min599c.css?v4.0.2">
+  <!-- //  <link rel="stylesheet" href="../global/vendor/summernote/summernote.min599c.css?v4.0.2"> -->
+
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../global/css/bootstrap.min599c.css?v4.0.2">
@@ -41,12 +46,14 @@
   <link rel="stylesheet" href="../global/vendor/slidepanel/slidePanel.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/vendor/jquery-mmenu/jquery-mmenu.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/vendor/flag-icon-css/flag-icon.min599c.css?v4.0.2">
-
+<!-- plugins for gallery -->
+<link rel="stylesheet" href="../global/vendor/magnific-popup/magnific-popup.min599c.css?v4.0.2">
+<link rel="stylesheet" href="assets/examples/css/pages/gallery.min599c.css?v4.0.2">
   <!-- Plugins For This Page -->
-  <link rel="stylesheet" href="../global/vendor/chartist/chartist.min599c.css?v4.0.2">
+        <!-- // <link rel="stylesheet" href="../global/vendor/chartist/chartist.min599c.css?v4.0.2"> -->
   <link rel="stylesheet" href="../global/vendor/jvectormap/jquery-jvectormap.min599c.css?v4.0.2">
-  <link rel="stylesheet" href="../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min599c.css?v4.0.2">
-
+        <!-- //<link
+         //rel="stylesheet" href="../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min599c.css?v4.0.2"> -->
   <!-- Page -->
   <link rel="stylesheet" href="assets/examples/css/dashboard/v1.min599c.css?v4.0.2">
 
@@ -56,16 +63,16 @@
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
   <link rel="stylesheet" href="../global/fonts/font-awesome/font-awesome.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/fonts/weather-icons/weather-icons.min599c.css?v4.0.2">
-  <link rel="stylesheet" href="../../global/vendor/blueimp-file-upload/jquery.fileupload.min599c.css?v4.0.2">
-<link rel="stylesheet" href="../../global/vendor/dropify/dropify.min599c.css?v4.0.2">
-  <!--[if lt IE 9]>
-    <script src="../global/vendor/html5shiv/html5shiv.min.js?v4.0.2"></script>
-    <![endif]-->
+  <link rel="stylesheet" href="../global/vendor/blueimp-file-upload/jquery.fileupload.min599c.css?v4.0.2">
+<link rel="stylesheet" href="../global/vendor/dropify/dropify.min599c.css?v4.0.2">
+                     <!-- //     [if lt IE 9]>
+                       //     <script src="../global/vendor/html5shiv/html5shiv.min.js?v4.0.2"></script>
+                         //   <![endif] -->
 
-  <!--[if lt IE 10]>
-    <script src="../global/vendor/media-match/media.match.min.js?v4.0.2"></script>
-    <script src="../global/vendor/respond/respond.min.js?v4.0.2"></script>
-    <![endif]-->
+                          <!-- //[if lt IE 10]>
+                          //  <script src="../global/vendor/media-match/media.match.min.js?v4.0.2"></script>
+                          //  <script src="../global/vendor/respond/respond.min.js?v4.0.2"></script>
+                          //  <![endif] -->
 
   <!-- Scripts -->
   <script src="../global/vendor/breakpoints/breakpoints.min599c.js?v4.0.2"></script>

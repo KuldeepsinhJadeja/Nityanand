@@ -80,7 +80,7 @@
 
   <script src="assets/js/Section/Menubar.min599c.js?v4.0.2"></script>
   <script src="assets/js/Section/Sidebar.min599c.js?v4.0.2"></script>
-  <script src="assets/js/Section/PageAside.min599c.js?v4.0.2"></script>
+  <script  src="assets/js/Section/PageAside.min599c.js?v4.0.2"></script>
   <script src="assets/js/Section/GridMenu.min599c.js?v4.0.2"></script>
    Config 
   <script src="../global/js/config/colors.min599c.js?v4.0.2"></script>

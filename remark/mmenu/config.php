@@ -14,21 +14,6 @@ if($con === false){
    die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 else{
-    // echo "Database connected successfully";
+   //   echo "Database connected successfully";
 }
-
-//$servername = "localhost";
-//$username = "username";
-//$password = "password";
-//$dbname = "nityanand";
-
-// Create connection
-//$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-//if ($conn->connect_error) {
-//    die("Connection failed: " . $conn->connect_error);
-//} 
-//else{
- //   echo "Database connected successfully";
-//}
 ?>

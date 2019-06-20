@@ -4,10 +4,6 @@ include_once 'header.php';
 
 <?php
 include_once 'navigation-bar-admin.html';
-<<<<<<< HEAD
-include_once 'bodyVideoForm.php';
-?>
-=======
 //include_once 'bodyVideoForm.php';
 ?>
   <!-- Page -->
@@ -93,7 +89,6 @@ include_once 'bodyVideoForm.php';
   </div>
   <!-- End Page -->
 
->>>>>>> 5ae1bd5300e600bbbaefaa04a2a247da86a45241
 <?php
 include_once 'footer.html';
 ?>

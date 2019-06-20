@@ -1,11 +1,9 @@
-<html>
-<head>
 <script>    
 function fileValidation(){
     // alert('hello');
     var fileInput = document.getElementById('upload');
     var filePath = fileInput.value;
-    var allowedExtensions = /(\.mkv|\.mp4)$/i;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
     // alert(filePath);
     if(!allowedExtensions.exec(filePath)){
         alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
@@ -23,8 +21,6 @@ function fileValidation(){
     }
 }
 </script>
-</head>
-<body>
 <!-- Page -->
   <div class="page">
       <div class="page-header">
@@ -36,13 +32,15 @@ function fileValidation(){
         <div class="panel">
             <div class="panel-heading">
                 <div class="panel-body container-fluid">    
-                    <form action="addVideo.php" method="post" enctype="multipart/form-data">
+                    <form action="blog_addBlog.php" method="post" enctype="multipart/form-data">
+                        
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Blog Title</h4>
                         <input type="text" class="form-control" placeholder="Blog Title" name="title" required/>
                         </div>
                         <br>
                         <br>
+
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Blog Category</h4>
                         <select class="form-control" name="category">
@@ -55,18 +53,35 @@ function fileValidation(){
                         <br>
                         <br>
                         </div>
+                        
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Blog Description</h4>
-                        <textarea class="form-control" placeholder="Blog Description" name="desc" required></textarea>
+                        <textarea class="form-control" placeholder="Blog Description" name="desc" id="desc" required></textarea>
                         <br>
                         <br>
                         </div>
+
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Upload Blog image</h4>
-                        <input type="file" name="file" required accept=".mp4,.mkv" onchange="return fileValidation()" id="upload"/>
+                        <input type="file" name="file1" required accept=".jpeg,.jpg,.png,.gif" onchange="return fileValidation()" id="upload1"/>
                         <br>
                         <br>
                         </div>
+                        
+                        <div class="col-md-6 col-lg-7">
+                        <h4 class="example-title">Blog Content</h4>
+                        <textarea class="form-control" placeholder="Blog Content" name="content" id="content" rows='10' required></textarea>
+                        <br>
+                        <br>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-7">
+                        <h4 class="example-title">Upload Blog image</h4>
+                        <input type="file" name="file2" required accept=".mp4,.mkv" onchange="return fileValidation()" id="upload2"/>
+                        <br>
+                        <br>
+                        </div>
+
                         <div class="col-md-6 col-lg-7">   
                         <br>                 
                         <input type="submit" value="Add Blog" class="btn btn-block btn-primary">
@@ -80,5 +95,3 @@ function fileValidation(){
         </div>
   </div>
   <!-- End Page -->
-</body>
-</html>
