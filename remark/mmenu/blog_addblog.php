@@ -4,7 +4,7 @@
 		$category = $_REQUEST['category'];
 		$desc = $_REQUEST['desc'];
 		$content = $_REQUEST['content'];
-
+		$url = $_REQUEST['url'];
 		$path = "uploads/blog-images";
 
 		$target_path = $path.'/'.$title;
@@ -34,9 +34,9 @@
 		move_uploaded_file($_FILES['filet']['tmp_name'],$target_filet);
 		move_uploaded_file($_FILES['file1']['tmp_name'],$target_file1);
 		move_uploaded_file($_FILES['file2']['tmp_name'],$target_file2);
-		$query = "insert into blog (blog_title,blog_category,blog_desc,title_image_path,image1_path,image2_path,content) 
-				  values ('".$title."','".$category."','".$desc."','".$target_filet."','".$target_file1."','".$target_file2."','".$content."');";
-		echo $query;
+		$query = "insert into blog (blog_title,blog_category,blog_desc,title_image_path,image1_path,image2_path,video_url,content) 
+				  values ('".$title."','".$category."','".$desc."','".$target_filet."','".$target_file1."','".$target_file2."','".$url."','".$content."');";
+		// echo $query;
 		$con->query($query);
 		$con->close();
 		header('Location: blog_view-blogs.php');

@@ -75,7 +75,7 @@
               </div>
             </div>
             <div class="card-block">
-              <h3 class="card-title"><?php echo $title?></h3>
+              <h2 class="card-title"><?php echo $title?></h2>
               <p class="card-text">
                 <small><?php echo $category?></small>
               </p>
@@ -88,17 +88,6 @@
             </form>
               <a class="btn btn-default btn-outline card-link" href="javascript:;" onclick="javascript:document.getElementById('view(<?php echo $blog_id?>)').submit()"">READ MORE</a>
               <div class="card-actions float-right">
-                <!-- <a href="javascript:void(0)">
-                <i class="icon wb-share"></i>
-              </a>
-                <a href="javascript:void(0)">
-                <i class="icon wb-heart"></i>
-                <span>63</span>
-              </a>
-                <a href="javascript:void(0)">
-                <i class="icon wb-chat"></i>
-                <span>24</span>
-              </a> -->
               </div>
             </div>
           </div>
@@ -114,11 +103,12 @@
           
 </div>
 </div>
-<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+  <script src="../global/vendor/jquery/jquery.min599c.js?v4.0.2"></script>
   <script src="../global/vendor/plyr/plyr599c.js?v4.0.2"></script>
   <script src="../global/vendor/matchheight/jquery.matchHeight-min599c.js?v4.0.2"></script>
   <script src="../global/vendor/imagesloaded/imagesloaded.pkgd.min599c.js?v4.0.2"></script>
-  <script src="../global/vendor/masonry/masonry.pkgd.min599c.js?v4.0.2"></script> -->
+  <script src="../global/vendor/masonry/masonry.pkgd.min599c.js?v4.0.2"></script>
 
 <?php
 		include_once 'footer.html';

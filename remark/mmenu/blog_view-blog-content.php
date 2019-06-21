@@ -3,6 +3,8 @@ include_once 'config.php';
 include_once 'header.php';
 include_once 'navigation-bar-admin.html';
 ?>
+ <div class="page">
+        <div class="page-content">
 <?php
             $blog_id = $_REQUEST["blog_id"];
             $query = "select * from  blog where blog_id = '".$blog_id."';";
@@ -16,28 +18,38 @@ include_once 'navigation-bar-admin.html';
                 $image2_path = $row['image2_path'];
                 $image_t = $row['title_image_path'];
                 $content = $row['content'];
+                $content2=array();
+              $content2 = str_split($content,strlen($content)/3);
 ?>
-    <div class="page">
-        <div class="page-content">
-        <div class="col-lg-12 col-sm-12 masonry-item" style="position: absolute; left: 0px; top: 3075px;">
+   
+        <div class="col-lg-12 col-sm-12 masonry-item">
           <!-- Widget with Overlay-shade -->
           <div class="card card-shadow">
             <div class="card-header cover overlay p-0">
-              <img class="cover-image overlay-figure" src="../../global/photos/view-5-960x640.jpg" alt="...">
+              <img class="cover-image overlay-figure" src="<?php echo $image_t?>" alt="...">
               <div class="overlay-shade overlay-panel"></div>
             </div>
             <div class="card-block">
-              <h3 class="card-title">Dolemus vero fames</h3>
+              <h3 class="card-title"><?php echo $title?></h3>
               <p class="card-text">
-                <small>Jun 15, 2017</small>
+                <small><?php echo $category?></small>
               </p>
-              <p class="card-text">Personae romano, deditum, diu veniam totam aequo, voluptaria maluisset
-                cotidie gravis quando liberiusque placatae, ars dicitis potius,
-                ordiamur aegritudo conquisitis sicine omnibus specie habendus iuvaret
-                contemnere brute, concedo potuimus tractatas inquam effici. Praeclara
-                responsum provocatus m domo desiderat. Quid natum. </p>
+              <hr>
+              <h4 class="card-title"><?php echo $desc?></h4>
+              <hr>
+                <p class="card-text"><?php echo $content2[0]?> </p>
+                
+                <div class="text-center">
+                <img class="img-fluid" style="max-width:70%;height:auto;" src="<?php echo $image1_path?>">
+                </div>
+                <p class="card-text"><?php echo $content2[1]?></p>
+
+                <div class="text-center">
+                <img class="img-fluid" style="max-width:70%;height:auto;" src="<?php echo $image2_path?>">
+                </div>
+                <p class="card-text"><?php echo $content2[2]?></p>
             </div>
-            <div class="card-block clearfix">
+            <!-- <div class="card-block clearfix">
               <a class="btn btn-default btn-outline card-link" href="javascript:void(0)"><i class="icon wb-chevron-right-mini font-size-16"></i>Read More</a>
               <div class="card-actions float-right">
                 <a href="javascript:void(0)">
@@ -51,12 +63,19 @@ include_once 'navigation-bar-admin.html';
                 <i class="icon wb-chat"></i>
                 <span>26</span>
               </a>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- End Widget with Overlay-background -->
+          <div class="float-left">
         </div>
-
+        <a href="blog_view-blogs.php">
+        <button type="button" class="btn btn-primary ladda-button" data-style="slide-left" data-plugin="ladda">
+          <span class="ladda-label"><i class="icon wb-arrow-left mr-10" aria-hidden="true"></i>View
+            Blogs</span>
+        <span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div></button>
+        </a>
+      </div>
         </div>
 </div>
 <?php
