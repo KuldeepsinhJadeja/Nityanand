@@ -37,10 +37,10 @@ function fileValidation(){
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Blog Title</h4>
                         <input type="text" class="form-control" placeholder="Blog Title" name="title" required/>
+                        <br>
+                        <br>
                         </div>
-                        <br>
-                        <br>
-
+                        
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Blog Category</h4>
                         <select class="form-control" name="category">
@@ -85,6 +85,13 @@ function fileValidation(){
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Upload Blog Body image 2 </h4>
                         <input type="file" name="file2" accept=".jpeg,.jpg,.png,.gif" onchange="return fileValidation()" id="upload2"/>
+                        <br>
+                        <br>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-7">
+                        <h4 class="example-title">Enter Youtube's video Url</h4>
+                        <input type="text" class="form-control" placeholder="Video-URL" name="url" id="url" required/>
                         <br>
                         <br>
                         </div>

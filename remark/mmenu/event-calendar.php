@@ -141,7 +141,7 @@ include_once 'header1.html';
       $.ajax({
        url:"calendar/event-delete.php",
        type:"POST",
-       async:false,
+      // async:false,
        data:{id:id},
        success:function()
        {

@@ -92,6 +92,12 @@
     // $redirect =header('Location: gallery_view-gallery-photos.php');
 ?>
 </ul>
+<div class="text-right">
+<button type="button" class="btn btn-floating btn-danger">
+  <a href="gallery_view-galleries.php"style="color: #ffffff;">
+  <i class="icon wb-plus" aria-hidden="true"></i></a>
+</button>
+</div>
 </div>
  </div>
  <?php

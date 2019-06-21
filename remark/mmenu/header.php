@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="../global/vendor/jquery-selective/jquery-selective.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/vendor/bootstrap-datepicker/bootstrap-datepicker.min599c.css?v4.0.2">
   <link rel="stylesheet" href="../global/vendor/ladda/ladda.min599c.css?v4.0.2">
+  <link rel="stylesheet" href="../global/vendor/plyr/plyr.min599c.css?v4.0.2">
   <!-- //  <link rel="stylesheet" href="../global/vendor/summernote/summernote.min599c.css?v4.0.2"> -->
 
 
