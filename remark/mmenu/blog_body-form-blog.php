@@ -91,7 +91,7 @@ function fileValidation(){
                         
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Enter Youtube's video Url</h4>
-                        <input type="text" class="form-control" placeholder="Video-URL" name="url" required/>
+                        <input type="text" class="form-control" placeholder="Video-URL" name="url" id="url" required/>
                         <br>
                         <br>
                         </div>

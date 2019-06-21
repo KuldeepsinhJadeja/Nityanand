@@ -5,6 +5,15 @@
 		$desc = $_REQUEST['desc'];
 		$content = $_REQUEST['content'];
 		$url = $_REQUEST['url'];
+		// $url2=array();
+		$url2="hiii";
+		if (strpos($url, 'watch?v=') !== false) { 
+			// echo $key . ' not exists in the URL <br>'; 
+			$url2 = str_replace("watch?v=","embed/",$url);
+		} 
+		else { 
+			echo ' exists in the URL <br>'; 
+		} 
 		$path = "uploads/blog-images";
 
 		$target_path = $path.'/'.$title;
@@ -35,7 +44,7 @@
 		move_uploaded_file($_FILES['file1']['tmp_name'],$target_file1);
 		move_uploaded_file($_FILES['file2']['tmp_name'],$target_file2);
 		$query = "insert into blog (blog_title,blog_category,blog_desc,title_image_path,image1_path,image2_path,video_url,content) 
-				  values ('".$title."','".$category."','".$desc."','".$target_filet."','".$target_file1."','".$target_file2."','".$url."','".$content."');";
+				  values ('".$title."','".$category."','".$desc."','".$target_filet."','".$target_file1."','".$target_file2."','".$url2."','".$content."');";
 		// echo $query;
 		$con->query($query);
 		$con->close();

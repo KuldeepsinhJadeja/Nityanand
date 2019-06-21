@@ -5,6 +5,7 @@
 ?>
 <div class="page">
 <div class="page-content">
+<div class="row">
 <?php
     $query = "select * from blog";
     $result = $con->query($query);
@@ -86,8 +87,15 @@
             <input type="hidden" name="action" value="view(<?php echo $blog_id?>)">        
             <input type="hidden" name="blog_id" value=<?php echo $blog_id?>>        
             </form>
+            <form action="blog_delete-blog.php" id="delete(<?php echo $blog_id?>)" method="post" style="display: none;">
+            <input type="hidden" name="action" value="delete(<?php echo $blog_id?>)">        
+            <input type="hidden" name="blog_id" value=<?php echo $blog_id?>>        
+            </form>
+
               <a class="btn btn-default btn-outline card-link" href="javascript:;" onclick="javascript:document.getElementById('view(<?php echo $blog_id?>)').submit()"">READ MORE</a>
               <div class="card-actions float-right">
+              <a href="javascript:;" onclick="javascript:document.getElementById('delete(<?php echo $blog_id?>)').submit()">
+                <i class="icon fa-trash" style="font-size: 28px;"></i>
               </div>
             </div>
           </div>
@@ -100,7 +108,15 @@
   }
 
 ?>
-          
+</div>
+
+<div class="text-right">
+<button type="button" class="btn btn-floating btn-danger">
+  <a href="blog_add-blog-form.php"style="color: #ffffff;">
+  <i class="icon wb-plus" aria-hidden="true"></i></a>
+</button>
+</div>
+
 </div>
 </div>
 <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->

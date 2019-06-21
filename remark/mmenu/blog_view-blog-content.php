@@ -17,9 +17,10 @@ include_once 'navigation-bar-admin.html';
                 $image1_path = $row['image1_path'];
                 $image2_path = $row['image2_path'];
                 $image_t = $row['title_image_path'];
+                $url = $row['video_url'];
                 $content = $row['content'];
                 $content2=array();
-              $content2 = str_split($content,strlen($content)/3);
+                $content2 = str_split($content,strlen($content)/3);
 ?>
    
         <div class="col-lg-12 col-sm-12 masonry-item">
@@ -48,6 +49,7 @@ include_once 'navigation-bar-admin.html';
                 <img class="img-fluid" style="max-width:70%;height:auto;" src="<?php echo $image2_path?>">
                 </div>
                 <p class="card-text"><?php echo $content2[2]?></p>
+                <div class="text-center"><iframe width="560" height="315" src="<?php echo $url?>" frameborder="0" allowfullscreen></iframe></div>
             </div>
             <!-- <div class="card-block clearfix">
               <a class="btn btn-default btn-outline card-link" href="javascript:void(0)"><i class="icon wb-chevron-right-mini font-size-16"></i>Read More</a>
