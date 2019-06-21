@@ -1,11 +1,21 @@
 <?php
 include_once 'header1.html';
 ?>
+<style>
+    h1 {
+    color: white;
+    background-color: #0984bf;
+            padding: 4px 16px 6px;
+}
+.form-control{width: 200px; margin-bottom: 10px;}
+</style>
   <link rel="stylesheet" href="calendar/fullcalendar.css" />
   <!-- <link rel="stylesheet" href="calendar/bootstrap.css" /> -->
   <link rel="stylesheet" href="calendar/bootstrap-datepicker.css">
   <link rel="stylesheet" href="../global/vendor/bootstrap-touchspin/bootstrap-touchspin.min599c.css?v4.0.2">
   <link rel="stylesheet" href="assets/examples/css/apps/calendar.min599c.css?v4.0.2">
+  <link rel="stylesheet" href="calendar/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="calendar/jquery.datetimepicker.min.css">
   <script src="../global/vendor/babel-external-helpers/babel-external-helpers599c.js?v4.0.2"></script>  
   <script src="calendar/jquery.min.js"></script>
   <script src="calendar/jquery-ui.min.js"></script>
@@ -13,8 +23,17 @@ include_once 'header1.html';
   <script src="calendar/fullcalendar.min.js"></script>
   <script src="../global/vendor/jquery-selective/jquery-selective.min599c.js?v4.0.2"></script>
   <script src="calendar/bootstrap-datepicker.js"></script>
+  <script src="calendar/jquery.datetimepicker.full.js"></script>
+  <script src="calendar/jquery.datetimepicker.full.min.js"></script>
+  <script src="calendar/jquery.datetimepicker.min.js"></script>
+
   <script>
-   
+    jQuery(document).ready(function () {
+      jQuery('#datetimepicker1').datetimepicker();
+      jQuery('#datetimepicker2').datetimepicker();
+      jQuery('#datetimepicker3').datetimepicker();
+      jQuery('#datetimepicker4').datetimepicker();
+    });
   $(document).ready(function() {
    var calendar = $('#calendar').fullCalendar({
     editable:true,//resize event
@@ -28,25 +47,28 @@ include_once 'header1.html';
     selectHelper:true,
     select: function(start, end, allDay)
     {
-     $("#addNewEvent").modal("show")
+     $("#addNewEvent").modal("show");
      $('#addNewEvent').on('click', '.btn-primary', function(){
         var title = $('#ename').val();
-        alert(title);
-        var start = $('#starts').val();
-        var end = $('#ends').val();
-        alert(end);
+        var start = moment($('#datetimepicker1').val()).format("YYYY-MM-DD HH:mm:ss");
+        var end = moment($('#datetimepicker2').val()).format("YYYY-MM-DD HH:mm:ss");
         $.ajax({
         url:"calendar/event-insert.php",
         type:"POST",
-        data:{title:title, start:start, end:end},
+        async:false,
+        data:{"title":title, "start":start, "end":end},
         success:function()
         {
+          // location.reload(true);
             calendar.fullCalendar('refetchEvents');
-            alert("Added Successfully");
+            // alert("Added Successfully");
+            $('#ename').val("");
+             $('#datetimepicker1').val("");
+              $('#datetimepicker2').val("");
+              $('#addNewEvent').modal('hide');
         }
         })
-        $('#addNewEvent').modal('hide');
-    });
+      });
     },
     editable:true,
     eventResize:function(event)
@@ -84,14 +106,39 @@ include_once 'header1.html';
      });
     },
 
-    eventClick:function(event)
-    {
-     if(confirm("Are you sure you want to remove it?"))
-     {
+    eventClick:function(event){
+      $("#editNewEvent").modal("show")
+      $("#editEname").val(event.title);
+      $("#datetimepicker3").val(moment(event.start).format("YYYY-MM-DD HH:mm:ss"));
+      $("#datetimepicker4").val(moment(event.end).format("YYYY-MM-DD HH:mm:ss"));
+
+      $('#editNewEvent').on('click', '.btn-primary', function(){
+        var title = $('#editEname').val();
+        var start = moment($('#datetimepicker3').val()).format("YYYY-MM-DD HH:mm:ss");
+        var end = moment($('#datetimepicker4').val()).format("YYYY-MM-DD HH:mm:ss");
+        var id = event.id;
+        $.ajax({
+        url:"calendar/event-update.php",
+        type:"POST",
+        data:{title:title, start:start, end:end, id:id},
+        success:function()
+        {
+            calendar.fullCalendar('refetchEvents');
+            alert("Updated Successfully");
+            $('#editEname').val("");
+              $('#datetimepicker3').val("");
+              $('#datetimepicker4').val("");
+              $('#addNewEvent').modal('hide');
+        }
+        })
+    });
+
+    $('#editNewEvent').on('click', '.btn-danger', function(){
       var id = event.id;
       $.ajax({
        url:"calendar/event-delete.php",
        type:"POST",
+       async:false,
        data:{id:id},
        success:function()
        {
@@ -99,9 +146,8 @@ include_once 'header1.html';
         alert("Event Removed");
        }
       })
-     }
+    });  
     },
-
     });
   });
    
@@ -110,12 +156,10 @@ include_once 'header1.html';
 include_once 'header2.html';
 include_once 'navigation-bar-admin.html';
 ?>
-<body style="color:black;">
-
-
+<!-- <body style="color:black;"> -->
   <br />
   <div class="container">
-   <div id="calendar"></div>
+   <div id="calendar" style="color:black"></div>
   </div>
  
   <div class="modal fade" id="addNewEvent" aria-hidden="true" aria-labelledby="addNewEvent"
@@ -136,9 +180,8 @@ include_once 'navigation-bar-admin.html';
                 <div class="form-group row">
                   <label class="col-md-2 form-control-label" for="starts">Starts:</label>
                   <div class="col-md-10">
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="starts" data-container="#addNewEvent"
-                        data-plugin="datepicker">
+                    <div class="input-group date"  for='datetimepicker1'>
+                      <input type="text" class="form-control" id="datetimepicker1" data-container="#addNewEvent">
                       <span class="input-group-addon">
                         <i class="icon wb-calendar" aria-hidden="true"></i>
                       </span>
@@ -149,51 +192,15 @@ include_once 'navigation-bar-admin.html';
                 <div class="form-group row">
                   <label class="col-md-2 form-control-label" for="ends">Ends:</label>
                   <div class="col-md-10">
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="ends" data-container="#addNewEvent"
-                        data-plugin="datepicker" data-format="Y-MM-DD HH:mm:ss">
+                    <div class="input-group date"  for='datetimepicker1'>
+                      <input type="text" class="form-control" id="datetimepicker2" data-container="#addNewEvent">
                       <span class="input-group-addon">
                         <i class="icon wb-calendar" aria-hidden="true"></i>
                       </span>
                     </div>
                   </div>
                 </div>
-                <div class="form-group row">
-                  <label class="form-control-label col-md-2">Color:</label>
-                  <div class="col-md-10">
-                    <ul class="color-selector">
-                      <li class="bg-blue-600">
-                        <input type="radio" checked name="eventColorChosen" id="eventColorChosen2">
-                        <label for="eventColorChosen2"></label>
-                      </li>
-                      <li class="bg-green-600">
-                        <input type="radio" name="eventColorChosen" id="eventColorChosen3">
-                        <label for="eventColorChosen3"></label>
-                      </li>
-                      <li class="bg-cyan-600">
-                        <input type="radio" name="eventColorChosen" id="eventColorChosen4">
-                        <label for="eventColorChosen4"></label>
-                      </li>
-                      <li class="bg-orange-600">
-                        <input type="radio" name="eventColorChosen" id="eventColorChosen5">
-                        <label for="eventColorChosen5"></label>
-                      </li>
-                      <li class="bg-red-600">
-                        <input type="radio" name="eventColorChosen" id="eventColorChosen6">
-                        <label for="eventColorChosen6"></label>
-                      </li>
-                      <li class="bg-blue-grey-600">
-                        <input type="radio" name="eventColorChosen" id="eventColorChosen7">
-                        <label for="eventColorChosen7"></label>
-                      </li>
-                      <li class="bg-purple-600">
-                        <input type="radio" name="eventColorChosen" id="eventColorChosen8">
-                        <label for="eventColorChosen8"></label>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              </div> 
               <div class="modal-footer">
                 <div class="form-actions">
                   <button class="btn btn-primary" data-dismiss="modal" type="button">Add this event</button>
@@ -203,8 +210,60 @@ include_once 'navigation-bar-admin.html';
             </form>
           </div>
         </div>
-        
-</body>
+        <!---->
+        <div class="modal fade" id="editNewEvent" aria-hidden="true" aria-labelledby="editNewEvent"
+          role="dialog" tabindex="-1" data-show="false">
+          <div class="modal-dialog modal-simple">
+            <form class="modal-content form-horizontal" action="#" method="post" role="form">
+              <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Edit Event</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group row">
+                  <label class="col-md-2 form-control-label" for="editEname">Name :</label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" id="editEname" name="editEname">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-2 form-control-label" for="editStarts">Starts:</label>
+                  <div class="col-md-10">
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="datetimepicker3" name="editStarts" data-container="#editNewEvent"
+                      >
+                      <span class="input-group-addon">
+                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-2 form-control-label" for="editEnds">Ends:</label>
+                  <div class="col-md-10">
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="datetimepicker4" data-container="#editNewEvent"
+                        >
+                      <span class="input-group-addon">
+                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              <div class="modal-footer">
+                <div class="form-actions">
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">Update</button>
+                  <button class="btn btn-danger" data-dismiss="modal" type="button">Delete</button>
+                  <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+<!-- </body> -->
 <?php
 include_once 'footer-calendar.html';
 ?>
