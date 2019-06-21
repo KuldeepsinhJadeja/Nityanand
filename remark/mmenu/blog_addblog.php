@@ -9,19 +9,33 @@
 
 		$target_path = $path.'/'.$title;
 		
+		$filet = basename($_FILES['filet']['name']);
+		if($filet=='' || $filet==null)
+			$target_filet = null;
+		else
+			$target_filet = $target_path.'/'.$filet;
+
 		$file1 = basename($_FILES['file1']['name']);
-		$target_file1 = $target_path.'/'.$file1;
+		if($file1=='' || $file1==null)
+			$target_file1 = null;
+		else
+			$target_file1 = $target_path.'/'.$file1;
 
 		$file2 = basename($_FILES['file2']['name']);
-		$target_file2 = $target_path.'/'.$file2;
+		if($file2=='' || $file2==null)
+			$target_file2 = null;
+		else
+			$target_file2 = $target_path.'/'.$file2;
+		
 		if(!file_exists($path.'/'.$title))
 		{
 			mkdir($path.'/'.$title);
 		}
+		move_uploaded_file($_FILES['filet']['tmp_name'],$target_filet);
 		move_uploaded_file($_FILES['file1']['tmp_name'],$target_file1);
 		move_uploaded_file($_FILES['file2']['tmp_name'],$target_file2);
-		$query = "insert into blog (blog_title,blog_category,blog_desc,image1_path,image2_path,content) 
-				  values ('".$title."','".$category."','".$desc."','".$target_file1."','".$target_file2."','".$content."');";
+		$query = "insert into blog (blog_title,blog_category,blog_desc,title_image_path,image1_path,image2_path,content) 
+				  values ('".$title."','".$category."','".$desc."','".$target_filet."','".$target_file1."','".$target_file2."','".$content."');";
 		echo $query;
 		$con->query($query);
 		$con->close();

@@ -55,6 +55,13 @@ function fileValidation(){
                         </div>
                         
                         <div class="col-md-6 col-lg-7">
+                        <h4 class="example-title">Upload Blog Title image</h4>
+                        <input type="file" name="filet" required accept=".jpeg,.jpg,.png,.gif" onchange="return fileValidation()" id="uploadt" required/>
+                        <br>
+                        <br>
+                        </div>
+
+                        <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Blog Description</h4>
                         <textarea class="form-control" placeholder="Blog Description" name="desc" id="desc" required></textarea>
                         <br>
@@ -62,8 +69,8 @@ function fileValidation(){
                         </div>
 
                         <div class="col-md-6 col-lg-7">
-                        <h4 class="example-title">Upload Blog image</h4>
-                        <input type="file" name="file1" required accept=".jpeg,.jpg,.png,.gif" onchange="return fileValidation()" id="upload1"/>
+                        <h4 class="example-title">Upload Blog Body image 1 </h4>
+                        <input type="file" name="file1" accept=".jpeg,.jpg,.png,.gif" onchange="return fileValidation()" id="upload1"/>
                         <br>
                         <br>
                         </div>
@@ -76,8 +83,8 @@ function fileValidation(){
                         </div>
                         
                         <div class="col-md-6 col-lg-7">
-                        <h4 class="example-title">Upload Blog image</h4>
-                        <input type="file" name="file2" required accept=".mp4,.mkv" onchange="return fileValidation()" id="upload2"/>
+                        <h4 class="example-title">Upload Blog Body image 2 </h4>
+                        <input type="file" name="file2" accept=".jpeg,.jpg,.png,.gif" onchange="return fileValidation()" id="upload2"/>
                         <br>
                         <br>
                         </div>
