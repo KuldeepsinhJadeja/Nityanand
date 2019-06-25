@@ -59,7 +59,7 @@ include_once 'header1.html';
         data:{"title":title, "start":start, "end":end},
         success:function()
         {
-          // location.reload(true);
+            location.reload(true);
             calendar.fullCalendar('refetchEvents');
             // alert("Added Successfully");
             $('#ename').val("");

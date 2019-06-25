@@ -20,7 +20,7 @@ include_once 'navigation-bar-admin.html';
                     <form action="addVideo.php" method="post" enctype="multipart/form-data">
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Video Title</h4>
-                        <input type="text" class="form-control" placeholder="Video Title" name="title"/>
+                        <input type="text" class="form-control" placeholder="Video Title" name="title" required/>
                         </div>
                         <br>
                         <br>
@@ -44,10 +44,10 @@ include_once 'navigation-bar-admin.html';
                         </div>
                         <div class="col-md-6 col-lg-7">
                         <h4 class="example-title">Upload Video</h4>
-                        <img id="thumbnail" name="thumbnail"/>
+                        <!-- <img id="thumbnail" name="thumbnail"/>
                         <input type="hidden" name="mytext" id="mytext"/>
-                        <br><br>
-                        <input type="file" name="file" id="upload"/>
+                        <br><br> -->
+                        <input type="file" name="fileUpload" />
                         <br>
                         <br>
                         </div>

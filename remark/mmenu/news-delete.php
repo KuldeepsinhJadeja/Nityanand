@@ -1,8 +1,15 @@
 <?php
 include_once 'config.php';
 
-$query = "delete from news where id=".$_POST['id'].";
+$id = $_POST['id'];
+$path = $_POST['path'];
+unlink($path);
+unlink(substr($path,0,-3)."txt");
+$path1 = substr($path,0,strrpos($path,'/'));
+if(rmdir($path1)){
+}
+$query = "delete from news where news_id=".$id;
 
 $con->query($query);
-header(location:'news-view.php');
+header('Location: news-view.php');
 ?>

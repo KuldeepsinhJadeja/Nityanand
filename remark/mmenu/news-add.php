@@ -2,7 +2,7 @@
 if(isset($_REQUEST['submit'])){
     include_once 'config.php';
 
-    $path = "uploads/news-images";
+    $path = "uploads/news";
 
     $title = $_REQUEST['title'];
     $category = $_REQUEST['category'];
@@ -16,9 +16,12 @@ if(isset($_REQUEST['submit'])){
     {
         mkdir($path.'/'.$title);
     }
+    $file = fopen(substr($target_filet,0,-3)."txt", "w");
+    fwrite($file, $content);
+    fclose($file);
     move_uploaded_file($_FILES['filet']['tmp_name'],$target_filet);
     $query = "insert into news (news_title,news_category,news_date,news_location,news_content,news_img_path) 
-    values ('".$title."','".$category."','".$date."','".$loc."','".$content."','".$target_filet."');";
+    values ('".$title."','".$category."','".$date."','".$loc."','".substr($content,0,200)."','".$target_filet."')";
     $con->query($query);
     $con->close();
     header('Location: news-view.php');
